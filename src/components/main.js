@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Mail, Linkedin, Github, Phone, MapPin, Copy, Check } from 'lucide-react';
+
 import './main.css';
 
 const SmoothScrollWebsite = () => {
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
+
+  const copyToClipboard = async (text, type) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      if (type === 'email') {
+        setCopiedEmail(true);
+        setTimeout(() => setCopiedEmail(false), 2000);
+      } else if (type === 'phone') {
+        setCopiedPhone(true);
+        setTimeout(() => setCopiedPhone(false), 2000);
+      }
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  };
+
   return (
     <div className="scroll-container">
       <section id="home" className="screen">
@@ -19,15 +39,56 @@ const SmoothScrollWebsite = () => {
 
       <section id="about" className="screen">
         <div className="screen-content">
-          <h1 className="title">about me</h1>
-          <div className="content-grid">
-                        <div className="neumorphic-card">
+          <h1 className="title text-center">about me</h1>
+          <div className="about-grid">
+            <div className="neumorphic-card technical-skills-card">
               <h2 className="content-title">Technical Skills</h2>
-              <p><strong>Hands-on knowledge of:</strong></p>
-              <p>HTML, CSS/SCSS, Figma, Bootstrap, React.js, Django, .NET, ASP.Net, Entity Framework, C#, SQL, Javascript, REST APIs, Aras PLM, Linux, GIT/Github, TFS, Google Cloud Platform</p>
-              <hr className="separator" />
-              <p><strong>Practical experience with:</strong></p>
-              <p>Data Analysis and visualization through Numpy, Pandas, Matplotlib, Seaborn , Machine Learning through Scikit-learn, Tensorflow, AutoML , Developing and Deploying Webapps using Django on different Cloud providers.</p>
+              <div className="skills-grid">
+                <div className="skill-category">
+                  <h3>Frontend</h3>
+                  <ul>
+                    <li>HTML</li>
+                    <li>CSS/SCSS</li>
+                    <li>Bootstrap</li>
+                    <li>React.js</li>
+                    <li>Figma</li>
+                  </ul>
+                </div>
+                <div className="skill-category">
+                  <h3>Backend</h3>
+                  <ul>
+                    <li>Django</li>
+                    <li>.NET</li>
+                    <li>ASP.Net</li>
+                    <li>Entity Framework</li>
+                    <li>C#</li>
+                    <li>SQL</li>
+                    <li>REST APIs</li>
+                  </ul>
+                </div>
+                <div className="skill-category">
+                  <h3>DevOps & Cloud</h3>
+                  <ul>
+                    <li>Linux</li>
+                    <li>GIT/Github</li>
+                    <li>TFS</li>
+                    <li>Google Cloud Platform</li>
+                    <li>Aras PLM</li>
+                  </ul>
+                </div>
+                <div className="skill-category">
+                  <h3>Data Science</h3>
+                  <ul>
+                    <li>Numpy</li>
+                    <li>Pandas</li>
+                    <li>Matplotlib</li>
+                    <li>Seaborn</li>
+                    <li>Scikit-learn</li>
+                    <li>Tensorflow</li>
+                    <li>AutoML</li>
+                  </ul>
+                </div>
+              </div>
             </div>
             <div className="neumorphic-card">
               <h2 className="content-title">Education</h2>
@@ -45,7 +106,7 @@ const SmoothScrollWebsite = () => {
 
       <section id="experience" className="screen">
         <div className="screen-content">
-          <h1 className="title">experience</h1>
+          <h1 className="title text-center">experience</h1>
           <div className="neumorphic-card full-width">
             <h2 className="content-title">Full Stack Developer</h2>
             <p style={{fontWeight: 600}}>Seligent Consulting | Nov 2021-Now | Pune, India</p>
@@ -77,51 +138,101 @@ const SmoothScrollWebsite = () => {
         </div>
       </section>
 
-      <section id="projects" className="screen">
-        <div className="screen-content">
-          <h1 className="title">projects</h1>
+      <section id="projects" className="screen projects-section-container">
+        <h1 className="title projects-title">projects</h1>
+        <div className="screen-content projects-content-wrapper">
           <div className="project-grid">
             <div className="project-card">
-              <h2 className="project-title">Employee Mental health Checker for HR</h2>
-              <p>A WebApp built using the Django framework which uses machine learning to predict whether an employee needs mental health treatment.</p>
-              <a href="https://vipulatlus.herokuapp.com" target="_blank" rel="noopener noreferrer">View Project</a>
+              <img src="https://via.placeholder.com/400x250" alt="Project Screenshot" className="project-screenshot"/>
+              <div className="project-content">
+                <h2 className="project-title">Employee Mental health Checker</h2>
+                <p>A WebApp built using Django which uses ML to predict whether an employee needs mental health treatment.</p>
+                <a href="https://vipulatlus.herokuapp.com" target="_blank" rel="noopener noreferrer">View Project</a>
+              </div>
             </div>
             <div className="project-card">
-              <h2 className="project-title">AI AutoDubbing</h2>
-              <p>Automated AI-assisted dubbing system that parses, transcribes, translates, and converts video audio to speech.</p>
-              <a href="https://github.com/dragonblood/Eridium" target="_blank" rel="noopener noreferrer">View Source</a>
+              <img src="https://via.placeholder.com/400x250" alt="Project Screenshot" className="project-screenshot"/>
+              <div className="project-content">
+                <h2 className="project-title">AI AutoDubbing</h2>
+                <p>Automated AI-assisted dubbing system that parses, transcribes, translates, and converts video audio to speech.</p>
+                <a href="https://github.com/dragonblood/Eridium" target="_blank" rel="noopener noreferrer">View Source</a>
+              </div>
             </div>
             <div className="project-card">
-              <h2 className="project-title">Sentiment and Entity Analyser</h2>
-              <p>A parachuting-themed responsive analyzer using Google's Natural Language API to process and visualize user-given text.</p>
-              <a href="http://boomerang.vipulpetkar.me/" target="_blank" rel="noopener noreferrer">View Project</a>
+              <img src="https://via.placeholder.com/400x250" alt="Project Screenshot" className="project-screenshot"/>
+              <div className="project-content">
+                <h2 className="project-title">Sentiment and Entity Analyser</h2>
+                <p>A parachuting-themed responsive analyzer using Google's Natural Language API to process and visualize user-given text.</p>
+                <a href="http://boomerang.vipulpetkar.me/" target="_blank" rel="noopener noreferrer">View Project</a>
+              </div>
             </div>
             <div className="project-card">
-              <h2 className="project-title">Neumorphic Image Tagging and Analysis</h2>
-              <p>A web app designed with neuromorphic principles to analyze user-uploaded images stored in Azure Blob Storage.</p>
-              <a href="https://cataract.azurewebsites.net" target="_blank" rel="noopener noreferrer">View Project</a>
+              <img src="https://via.placeholder.com/400x250" alt="Project Screenshot" className="project-screenshot"/>
+              <div className="project-content">
+                <h2 className="project-title">Neumorphic Image Tagging</h2>
+                <p>A web app designed with neuromorphic principles to analyze user-uploaded images stored in Azure Blob Storage.</p>
+                <a href="https://cataract.azurewebsites.net" target="_blank" rel="noopener noreferrer">View Project</a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <section id="contact" className="screen">
-        <div className="screen-content text-center">
-          <h1 className="title">contact me</h1>
-          <div className="neumorphic-card">
-            <div className="contact-info">
-              <p>
-                <a href="mailto:Petkar.vipul@gmail.com">Petkar.vipul@gmail.com</a>
-              </p>
-              <p>
-                <a href="https://www.linkedin.com/in/vipul-petkar" target="_blank" rel="noopener noreferrer">linkedin.com/in/vipul-petkar</a>
-              </p>
-              <p>
-                <a href="https://github.com/dragonblood" target="_blank" rel="noopener noreferrer">github.com/dragonblood</a>
-              </p>
-              <p>Phone: +918999540311</p>
+        <div className="screen-content">
+          <h1 className="title text-center">contact me</h1>
+          <p className="subtitle text-center">
+            Ready to bring your ideas to life? Drop me a line and let's create something amazing together.
+          </p>
+          <div className="contact-grid">
+            <div className="neumorphic-card contact-card">
+              <h2 className="content-title text-center">get in touch</h2>
+              <div className="contact-details-container">
+                {/* Email */}
+                <div className="contact-info-item" onClick={() => copyToClipboard('Petkar.vipul@gmail.com', 'email')}>
+                  <div className="contact-icon-wrapper"><Mail size={20} /></div>
+                  <div className="contact-text-wrapper">
+                    <p className="contact-label">Email</p>
+                    <p className="contact-value">Petkar.vipul@gmail.com</p>
+                  </div>
+                  <div className="copy-icon-wrapper">
+                    {copiedEmail ? <Check size={20} className="text-green" /> : <Copy size={20} />}
+                  </div>
+                </div>
+
+                {/* Phone */}
+                <div className="contact-info-item" onClick={() => copyToClipboard('+918999540311', 'phone')}>
+                  <div className="contact-icon-wrapper"><Phone size={20} /></div>
+                  <div className="contact-text-wrapper">
+                    <p className="contact-label">Phone</p>
+                    <p className="contact-value">+91 899 954 0311</p>
+                  </div>
+                  <div className="copy-icon-wrapper">
+                    {copiedPhone ? <Check size={20} className="text-green" /> : <Copy size={20} />}
+                  </div>
+                </div>
+
+                {/* Location */}
+                <div className="contact-info-item non-clickable">
+                  <div className="contact-icon-wrapper"><MapPin size={20} /></div>
+                  <div className="contact-text-wrapper">
+                    <p className="contact-label">Location</p>
+                    <p className="contact-value">Nagpur, Maharashtra, IN</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social Links */}
+              <div className="social-links-container">
+                <a href="https://www.linkedin.com/in/vipul-petkar" target="_blank" rel="noopener noreferrer" className="social-button">
+                  <Linkedin size={24} />
+                </a>
+                <a href="https://github.com/dragonblood" target="_blank" rel="noopener noreferrer" className="social-button">
+                  <Github size={24} />
+                </a>
+              </div>
             </div>
-          </div>
+          </div> 
         </div>
       </section>
     </div>
