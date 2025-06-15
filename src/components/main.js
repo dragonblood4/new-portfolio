@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { Mail, Linkedin, Github, Phone, MapPin, Copy, Check } from 'lucide-react';
 
+import one from '../assets/images/Atlus.png'; 
+import two from '../assets/images/Boomerang.png';
+import three from '../assets/images/Cataract.png'; 
+import five from '../assets/images/Login.png'; 
+import four from '../assets/images/eridium.png'; 
+
+
 import './main.css';
 
 const SmoothScrollWebsite = () => {
@@ -28,11 +35,11 @@ const SmoothScrollWebsite = () => {
         <div className="screen-content text-center">
           <h1 className="title">
             <span className="block">Hi</span>
-            <br/>
+            <br />
             <span className="block">I'm Vipul</span>
           </h1>
           <p className="subtitle">
-            Scroll to see more
+            Cloud Architect and PLM consultant
           </p>
         </div>
       </section>
@@ -48,44 +55,44 @@ const SmoothScrollWebsite = () => {
                   <h3>Frontend</h3>
                   <ul>
                     <li>HTML</li>
-                    <li>CSS/SCSS</li>
-                    <li>Bootstrap</li>
-                    <li>React.js</li>
                     <li>Figma</li>
+                    <li>CSS</li>
+                    <li>SCSS</li>
+                    <li>React.js</li>
+                    <li>Bootstrap</li>
                   </ul>
                 </div>
                 <div className="skill-category">
                   <h3>Backend</h3>
                   <ul>
-                    <li>Django</li>
-                    <li>.NET</li>
-                    <li>ASP.Net</li>
-                    <li>Entity Framework</li>
                     <li>C#</li>
+                    <li>ASP.Net</li>
+                    <li>.NET</li>
+                    <li>Django</li>
+                    <li>Python</li>
                     <li>SQL</li>
                     <li>REST APIs</li>
+                    <li>Entity Framework</li>
                   </ul>
                 </div>
                 <div className="skill-category">
                   <h3>DevOps & Cloud</h3>
                   <ul>
+                    <li>AWS</li>
                     <li>Linux</li>
+                    <li>Cloud migration</li>
+                    <li>Cloud formation and CDK script</li>
                     <li>GIT/Github</li>
-                    <li>TFS</li>
                     <li>Google Cloud Platform</li>
-                    <li>Aras PLM</li>
                   </ul>
                 </div>
                 <div className="skill-category">
-                  <h3>Data Science</h3>
+                  <h3>PLM</h3>
                   <ul>
-                    <li>Numpy</li>
-                    <li>Pandas</li>
-                    <li>Matplotlib</li>
-                    <li>Seaborn</li>
-                    <li>Scikit-learn</li>
-                    <li>Tensorflow</li>
-                    <li>AutoML</li>
+                    <li>Aras PLM 12, 14, 22</li>
+                    <li>Aras customization</li>
+                    <li>Aras configuration</li>
+                    <li>Aras custom module developement</li>
                   </ul>
                 </div>
               </div>
@@ -109,27 +116,41 @@ const SmoothScrollWebsite = () => {
           <h1 className="title text-center">experience</h1>
           <div className="neumorphic-card full-width">
             <h2 className="content-title">Full Stack Developer</h2>
-            <p style={{fontWeight: 600}}>Seligent Consulting | Nov 2021-Now | Pune, India</p>
-            <ul style={{listStyle: 'disc', listStylePosition: 'inside', marginTop: '0.5rem'}}>
-              <li>Currently helping Delaval with the migration from ARAS (ASP.NET based application) v22 to v27 and assisting with ARAS-SAP Integration for Alstom.</li>
-              <li>Developed, tested, and helped deploy (through CI/CD pipeline) hydra highly customized and configured ARAS innovator by Alstom.</li>
-              <li>Worked on ARAS-Orchestra integration where files were transferred via. SFTP.</li>
-              <li>Built Secure API Wrapper Around Hydra using APS.NET, to extend the functionality by allowing the API users more flexibility in a secure way.</li>
+            <p style={{ fontWeight: 600 }}>Seligent Consulting | Nov 2021-Now | Pune, India</p>
+            <ul style={{ listStyle: 'disc', listStylePosition: 'inside', marginTop: '0.5rem' }}>
+              <li>Currently helping Delaval with the migration from ARAS (ASP.NET based application)
+                v22 to v27 and assisting with ARAS-SAP Integration for Alstom.</li>
+
+              <li>Developed, tested, and helped deploy (through CI/CD pipeline) hydra highly customized
+                and configured ARAS innovator by Alstom.
+                <ul>
+                  <li>Worked on ARAS-Orchestra integration where files were transferred via. SFTP.</li>
+
+                  <li>Built Secure API Wrapper Around Hydra using APS.NET, to extend the functionality by allowing the API users more flexibility in a secure way.</li>
+                </ul>
+              </li>
+
+              <li>Built a POC in Aras innovator to handle European environment compliance through
+                European Chemicals Agency (ECHA) APIs for substances of concern in parts. Which
+                involved Auto registration of the dossiers at ECHA in the SCIP (Substances of Concern In
+                Products) database and showing their status in Aras.</li>
+
+              <li>Built an entire interface in ReactJS for American clients while directly handling communication and requirements.</li>
             </ul>
           </div>
           <div className="content-grid">
             <div className="neumorphic-card">
               <h2 className="content-title">Summer School on Machine Learning</h2>
-              <p style={{fontWeight: 600}}>IIIT Hyderabad | July 2019 | Hyderabad, India</p>
-              <ul style={{listStyle: 'disc', listStylePosition: 'inside', marginTop: '0.5rem'}}>
+              <p style={{ fontWeight: 600 }}>IIIT Hyderabad | July 2019 | Hyderabad, India</p>
+              <ul style={{ listStyle: 'disc', listStylePosition: 'inside', marginTop: '0.5rem' }}>
                 <li>Learned about the various state-of-the-art machine learning and deep learning techniques.</li>
                 <li>Built and trained various CNNS, GANS, Autoencoders, etc under the supervision of industry-leading experts.</li>
               </ul>
             </div>
             <div className="neumorphic-card">
               <h2 className="content-title">Summer Intern</h2>
-              <p style={{fontWeight: 600}}>Cojag Smart Technology | Jun 2019-Jul 2019 | Nagpur, India</p>
-              <ul style={{listStyle: 'disc', listStylePosition: 'inside', marginTop: '0.5rem'}}>
+              <p style={{ fontWeight: 600 }}>Cojag Smart Technology | Jun 2019-Jul 2019 | Nagpur, India</p>
+              <ul style={{ listStyle: 'disc', listStylePosition: 'inside', marginTop: '0.5rem' }}>
                 <li>Worked with the analytics team to visualize and analyze data from various sources.</li>
                 <li>Helped with the planning of tech infrastructure for local government schools.</li>
               </ul>
@@ -143,7 +164,7 @@ const SmoothScrollWebsite = () => {
         <div className="screen-content projects-content-wrapper">
           <div className="project-grid">
             <div className="project-card">
-              <img src="https://via.placeholder.com/400x250" alt="Project Screenshot" className="project-screenshot"/>
+              <img src={one} alt="Project Screenshot" className="project-screenshot" />
               <div className="project-content">
                 <h2 className="project-title">Employee Mental health Checker</h2>
                 <p>A WebApp built using Django which uses ML to predict whether an employee needs mental health treatment.</p>
@@ -151,7 +172,7 @@ const SmoothScrollWebsite = () => {
               </div>
             </div>
             <div className="project-card">
-              <img src="https://via.placeholder.com/400x250" alt="Project Screenshot" className="project-screenshot"/>
+              <img src={four} alt="Project Screenshot" className="project-screenshot" />
               <div className="project-content">
                 <h2 className="project-title">AI AutoDubbing</h2>
                 <p>Automated AI-assisted dubbing system that parses, transcribes, translates, and converts video audio to speech.</p>
@@ -159,7 +180,7 @@ const SmoothScrollWebsite = () => {
               </div>
             </div>
             <div className="project-card">
-              <img src="https://via.placeholder.com/400x250" alt="Project Screenshot" className="project-screenshot"/>
+              <img src={two} alt="Project Screenshot" className="project-screenshot" />
               <div className="project-content">
                 <h2 className="project-title">Sentiment and Entity Analyser</h2>
                 <p>A parachuting-themed responsive analyzer using Google's Natural Language API to process and visualize user-given text.</p>
@@ -167,7 +188,7 @@ const SmoothScrollWebsite = () => {
               </div>
             </div>
             <div className="project-card">
-              <img src="https://via.placeholder.com/400x250" alt="Project Screenshot" className="project-screenshot"/>
+              <img src={three} alt="Project Screenshot" className="project-screenshot" />
               <div className="project-content">
                 <h2 className="project-title">Neumorphic Image Tagging</h2>
                 <p>A web app designed with neuromorphic principles to analyze user-uploaded images stored in Azure Blob Storage.</p>
@@ -232,7 +253,7 @@ const SmoothScrollWebsite = () => {
                 </a>
               </div>
             </div>
-          </div> 
+          </div>
         </div>
       </section>
     </div>
