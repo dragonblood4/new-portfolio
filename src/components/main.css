@@ -1,8 +1,10 @@
 :root {
-  --text-color: #111;
-  --bg-color: #b9b3a9;;
-  --card-bg: rgba(255, 255, 255, 0.1);
-  --card-border: rgba(255, 255, 255, 0.2);
+  --text-color: #000000;
+  --bg-color: #b9b3a9;
+  --shadow-light: #dcd5c9;
+  --shadow-dark: #969189;
+  --neumorphic-radius: 39px;
+  --card-padding: 2rem;
 }
 
 html, body {
@@ -39,34 +41,35 @@ html, body {
 }
 
 .title {
-  font-size: clamp(2.5rem, 10vw, 6rem);
+  font-size: clamp(2.5rem, 15vw, 7rem);
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 2rem;
+  /* text-align: center; */
 }
 
 .subtitle {
   font-size: clamp(1rem, 4vw, 1.5rem);
   opacity: 0.8;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  text-align: right;
 }
 
 .content-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
 
-.content-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  padding: 2rem;
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
+.neumorphic-card {
+  padding: var(--card-padding);
+  border-radius: var(--neumorphic-radius);
+  background: var(--bg-color);
+  box-shadow: 16px 16px 47px var(--shadow-dark), -16px -16px 47px var(--shadow-light);
 }
 
-.content-card.full-width {
+.neumorphic-card.full-width {
   grid-column: 1 / -1;
 }
 
@@ -78,7 +81,8 @@ html, body {
 
 .separator {
   margin: 1rem 0;
-  border-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-top: 1px solid var(--shadow-dark);
 }
 
 .project-grid {
@@ -89,11 +93,10 @@ html, body {
 }
 
 .project-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    padding: 2rem;
-    border-radius: 16px;
-    backdrop-filter: blur(10px);
+  padding: var(--card-padding);
+  border-radius: var(--neumorphic-radius);
+  background: var(--bg-color);
+  box-shadow: 16px 16px 47px var(--shadow-dark), -16px -16px 47px var(--shadow-light);
 }
 
 .project-title {
@@ -105,7 +108,7 @@ html, body {
 .project-card a {
     display: inline-block;
     margin-top: 1rem;
-    color: #ffffff;
+    color: var(--text-color);
     font-weight: 600;
     text-decoration: none;
 }
@@ -118,6 +121,7 @@ html, body {
   margin-top: 2rem;
   font-size: 1.25rem;
   line-height: 2;
+  text-align: center;
 }
 
 .contact-info a {
@@ -133,10 +137,15 @@ html, body {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .content-grid {
-    grid-template-columns: 1fr;
-  }
   .screen {
     padding: 2rem 1rem;
+  }
+
+  .title {
+    font-size: clamp(2rem, 12vw, 3rem);
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
   }
 }
