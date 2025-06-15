@@ -1,0 +1,142 @@
+:root {
+  --text-color: #111;
+  --bg-color: #b9b3a9;;
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --card-border: rgba(255, 255, 255, 0.2);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  scroll-behavior: smooth;
+}
+
+.scroll-container {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+}
+
+.screen {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  box-sizing: border-box;
+  scroll-snap-align: start;
+}
+
+.screen-content {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.title {
+  font-size: clamp(2.5rem, 10vw, 6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  opacity: 0.8;
+  margin-top: 1rem;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.content-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 2rem;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.content-card.full-width {
+  grid-column: 1 / -1;
+}
+
+.content-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.separator {
+  margin: 1rem 0;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 2rem;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+}
+
+.project-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.project-card a {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.project-card a:hover {
+    text-decoration: underline;
+}
+
+.contact-info {
+  margin-top: 2rem;
+  font-size: 1.25rem;
+  line-height: 2;
+}
+
+.contact-info a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.contact-info a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+  .screen {
+    padding: 2rem 1rem;
+  }
+}
